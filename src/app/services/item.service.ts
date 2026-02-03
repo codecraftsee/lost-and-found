@@ -104,7 +104,7 @@ export class ItemService {
       {
         id: crypto.randomUUID(),
         type: 'lost',
-        title: 'iPhone 15 Pro',
+        title: 'iPhone 15 Pro MAX',
         description: 'Lost my iPhone 15 Pro in a dark blue case somewhere between the gym and the parking lot.',
         category: Category.Electronics,
         location: 'Downtown Fitness Center',
