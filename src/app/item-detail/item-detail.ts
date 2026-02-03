@@ -1,12 +1,14 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import { ItemService } from '../services/item.service';
+import { TranslateService } from '../services/translate.service';
+import { TranslatePipe } from '../shared/translate.pipe';
+import { LocalizedDatePipe } from '../shared/localized-date.pipe';
 import { Item } from '../models/item.model';
 
 @Component({
   selector: 'app-item-detail',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, TranslatePipe, LocalizedDatePipe],
   templateUrl: './item-detail.html',
   styleUrl: './item-detail.scss'
 })
@@ -14,6 +16,7 @@ export default class ItemDetail implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private itemService = inject(ItemService);
+  private translateService = inject(TranslateService);
 
   item = signal<Item | undefined>(undefined);
 
@@ -29,7 +32,7 @@ export default class ItemDetail implements OnInit {
 
   deleteItem(): void {
     const current = this.item();
-    if (current && confirm('Are you sure you want to delete this item?')) {
+    if (current && confirm(this.translateService.translate('detail.confirmDelete'))) {
       this.itemService.delete(current.id);
       this.router.navigate(['/items']);
     }

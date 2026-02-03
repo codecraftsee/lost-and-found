@@ -1,11 +1,12 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import { Item } from '../../models/item.model';
+import { TranslatePipe } from '../translate.pipe';
+import { LocalizedDatePipe } from '../localized-date.pipe';
 
 @Component({
   selector: 'app-item-card',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, TranslatePipe, LocalizedDatePipe],
   templateUrl: './item-card.html',
   styleUrl: './item-card.scss'
 })
