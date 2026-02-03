@@ -32,6 +32,10 @@
   "detail.email": "Imejl",
   "detail.phone": "Telefon",
   "detail.confirmDelete": "Da li ste sigurni da želite da obrišete ovaj predmet?",
+  "detail.potentialMatches": "Potencijalna poklapanja",
+  "detail.strongMatch": "Jako poklapanje",
+  "detail.possibleMatch": "Moguće poklapanje",
+  "detail.noMatches": "Nema pronađenih poklapanja.",
 
   "report.title": "Prijavi predmet",
   "report.typeLabel": "Tip",
