@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ItemService } from '../services/item.service';
+import { TranslatePipe } from '../shared/translate.pipe';
 import { Category } from '../models/item.model';
 
 @Component({
   selector: 'app-report-item',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TranslatePipe],
   templateUrl: './report-item.html',
   styleUrl: './report-item.scss'
 })

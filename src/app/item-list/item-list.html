@@ -1,11 +1,11 @@
 <div class="container list-page">
-  <h1 class="section-title">Browse Items</h1>
+  <h1 class="section-title">{{ 'items.browseTitle' | translate }}</h1>
 
   <div class="filters">
     <input
       type="text"
       class="form-control search-input"
-      placeholder="Search by title, description, or location..."
+      [placeholder]="'items.searchPlaceholder' | translate"
       [value]="searchQuery()"
       (input)="onSearch($event)"
     />
@@ -16,17 +16,17 @@
           class="toggle-btn"
           [class.active]="typeFilter() === 'all'"
           (click)="setTypeFilter('all')"
-        >All</button>
+        >{{ 'items.filterAll' | translate }}</button>
         <button
           class="toggle-btn toggle-lost"
           [class.active]="typeFilter() === 'lost'"
           (click)="setTypeFilter('lost')"
-        >Lost</button>
+        >{{ 'items.filterLost' | translate }}</button>
         <button
           class="toggle-btn toggle-found"
           [class.active]="typeFilter() === 'found'"
           (click)="setTypeFilter('found')"
-        >Found</button>
+        >{{ 'items.filterFound' | translate }}</button>
       </div>
 
       <select
@@ -34,9 +34,9 @@
         [value]="categoryFilter()"
         (change)="onCategoryChange($event)"
       >
-        <option value="">All Categories</option>
+        <option value="">{{ 'items.allCategories' | translate }}</option>
         @for (cat of categories; track cat) {
-          <option [value]="cat">{{ cat }}</option>
+          <option [value]="cat">{{ 'category.' + cat | translate }}</option>
         }
       </select>
     </div>
@@ -50,8 +50,8 @@
     </div>
   } @else {
     <div class="empty-state">
-      <p class="empty-state-text">No items found matching your criteria.</p>
-      <a routerLink="/report" class="btn btn-primary">Report an Item</a>
+      <p class="empty-state-text">{{ 'items.emptyState' | translate }}</p>
+      <a routerLink="/report" class="btn btn-primary">{{ 'items.reportItem' | translate }}</a>
     </div>
   }
 </div>

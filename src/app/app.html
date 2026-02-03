@@ -1,11 +1,12 @@
 <nav class="navbar">
   <div class="navbar-inner container">
-    <a class="navbar-brand" routerLink="/">Lost & Found</a>
+    <a class="navbar-brand" routerLink="/">{{ 'nav.brand' | translate }}</a>
     <div class="navbar-links">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-      <a routerLink="/items" routerLinkActive="active">Browse</a>
-      <a routerLink="/report" [queryParams]="{ type: 'lost' }" class="btn btn-lost btn-nav">Report Lost</a>
-      <a routerLink="/report" [queryParams]="{ type: 'found' }" class="btn btn-found btn-nav">Report Found</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'nav.home' | translate }}</a>
+      <a routerLink="/items" routerLinkActive="active">{{ 'nav.browse' | translate }}</a>
+      <a routerLink="/report" [queryParams]="{ type: 'lost' }" class="btn btn-lost btn-nav">{{ 'nav.reportLost' | translate }}</a>
+      <a routerLink="/report" [queryParams]="{ type: 'found' }" class="btn btn-found btn-nav">{{ 'nav.reportFound' | translate }}</a>
+      <app-language-switcher />
     </div>
   </div>
 </nav>

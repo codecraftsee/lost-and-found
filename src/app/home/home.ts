@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ItemService } from '../services/item.service';
 import { ItemCard } from '../shared/item-card/item-card';
+import { TranslatePipe } from '../shared/translate.pipe';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, ItemCard],
+  imports: [RouterLink, ItemCard, TranslatePipe],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

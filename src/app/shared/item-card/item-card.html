@@ -1,13 +1,13 @@
 <a class="card item-card" [routerLink]="['/items', item().id]">
   <div class="item-card-header">
     <span class="badge" [class.badge-lost]="item().type === 'lost'" [class.badge-found]="item().type === 'found'">
-      {{ item().type }}
+      {{ 'type.' + item().type | translate }}
     </span>
-    <span class="item-card-category">{{ item().category }}</span>
+    <span class="item-card-category">{{ 'category.' + item().category | translate }}</span>
   </div>
   <h3 class="item-card-title">{{ item().title }}</h3>
   <div class="item-card-meta">
     <span class="item-card-location">{{ item().location }}</span>
-    <span class="item-card-date">{{ item().date | date:'mediumDate' }}</span>
+    <span class="item-card-date">{{ item().date | localizedDate:'mediumDate' }}</span>
   </div>
 </a>

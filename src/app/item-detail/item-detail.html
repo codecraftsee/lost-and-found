@@ -1,49 +1,49 @@
 @if (item(); as item) {
   <div class="container detail-page">
     <div class="detail-nav">
-      <a routerLink="/items" class="btn btn-outline">Back to listings</a>
-      <button class="btn btn-outline btn-delete" (click)="deleteItem()">Delete</button>
+      <a routerLink="/items" class="btn btn-outline">{{ 'detail.backToListings' | translate }}</a>
+      <button class="btn btn-outline btn-delete" (click)="deleteItem()">{{ 'detail.delete' | translate }}</button>
     </div>
 
     <article class="detail-card card">
       <div class="detail-header">
         <span class="badge" [class.badge-lost]="item.type === 'lost'" [class.badge-found]="item.type === 'found'">
-          {{ item.type }}
+          {{ 'type.' + item.type | translate }}
         </span>
-        <span class="detail-category">{{ item.category }}</span>
+        <span class="detail-category">{{ 'category.' + item.category | translate }}</span>
       </div>
 
       <h1 class="detail-title">{{ item.title }}</h1>
 
       <div class="detail-meta">
         <div class="meta-item">
-          <span class="meta-label">Location</span>
+          <span class="meta-label">{{ 'detail.location' | translate }}</span>
           <span class="meta-value">{{ item.location }}</span>
         </div>
         <div class="meta-item">
-          <span class="meta-label">Date</span>
-          <span class="meta-value">{{ item.date | date:'longDate' }}</span>
+          <span class="meta-label">{{ 'detail.date' | translate }}</span>
+          <span class="meta-value">{{ item.date | localizedDate:'longDate' }}</span>
         </div>
       </div>
 
       <div class="detail-description">
-        <h2>Description</h2>
+        <h2>{{ 'detail.description' | translate }}</h2>
         <p>{{ item.description }}</p>
       </div>
 
       <div class="detail-contact">
-        <h2>Contact Information</h2>
+        <h2>{{ 'detail.contactInfo' | translate }}</h2>
         <div class="contact-grid">
           <div class="contact-item">
-            <span class="meta-label">Name</span>
+            <span class="meta-label">{{ 'detail.name' | translate }}</span>
             <span class="meta-value">{{ item.contactName }}</span>
           </div>
           <div class="contact-item">
-            <span class="meta-label">Email</span>
+            <span class="meta-label">{{ 'detail.email' | translate }}</span>
             <a class="meta-value" [href]="'mailto:' + item.contactEmail">{{ item.contactEmail }}</a>
           </div>
           <div class="contact-item">
-            <span class="meta-label">Phone</span>
+            <span class="meta-label">{{ 'detail.phone' | translate }}</span>
             <a class="meta-value" [href]="'tel:' + item.contactPhone">{{ item.contactPhone }}</a>
           </div>
         </div>

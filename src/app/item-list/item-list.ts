@@ -2,11 +2,12 @@ import { Component, computed, inject, signal, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ItemService } from '../services/item.service';
 import { ItemCard } from '../shared/item-card/item-card';
+import { TranslatePipe } from '../shared/translate.pipe';
 import { Category, Item } from '../models/item.model';
 
 @Component({
   selector: 'app-item-list',
-  imports: [ItemCard, RouterLink],
+  imports: [ItemCard, RouterLink, TranslatePipe],
   templateUrl: './item-list.html',
   styleUrl: './item-list.scss'
 })
