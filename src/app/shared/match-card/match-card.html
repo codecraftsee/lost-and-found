@@ -1,0 +1,18 @@
+<a class="card match-card" [routerLink]="['/items', match().item.id]">
+  <div class="match-card-header">
+    <span class="score-badge" [class.score-strong]="match().label === 'strong'" [class.score-possible]="match().label === 'possible'">
+      {{ match().score }}%
+    </span>
+    <span class="match-label">{{ 'detail.' + match().label + 'Match' | translate }}</span>
+  </div>
+  <div class="match-card-body">
+    <span class="badge" [class.badge-lost]="match().item.type === 'lost'" [class.badge-found]="match().item.type === 'found'">
+      {{ 'type.' + match().item.type | translate }}
+    </span>
+    <h4 class="match-card-title">{{ match().item.title }}</h4>
+    <div class="match-card-meta">
+      <span class="match-card-location">{{ match().item.location }}</span>
+      <span class="match-card-date">{{ match().item.date | localizedDate:'mediumDate' }}</span>
+    </div>
+  </div>
+</a>

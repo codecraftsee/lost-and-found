@@ -119,3 +119,29 @@
     color: var(--color-accent);
   }
 }
+
+.matches-section {
+  margin-top: var(--spacing-xl);
+}
+
+.matches-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.matches-count {
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.matches-empty {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}

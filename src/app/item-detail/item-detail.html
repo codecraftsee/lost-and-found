@@ -49,5 +49,23 @@
         </div>
       </div>
     </article>
+
+    <section class="matches-section">
+      <h2 class="matches-heading">
+        {{ 'detail.potentialMatches' | translate }}
+        @if (matches().length) {
+          <span class="matches-count">({{ matches().length }})</span>
+        }
+      </h2>
+      @if (matches().length) {
+        <div class="matches-grid">
+          @for (match of matches(); track match.item.id) {
+            <app-match-card [match]="match" />
+          }
+        </div>
+      } @else {
+        <p class="matches-empty">{{ 'detail.noMatches' | translate }}</p>
+      }
+    </section>
   </div>
 }

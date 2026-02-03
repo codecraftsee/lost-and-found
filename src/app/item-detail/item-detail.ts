@@ -1,14 +1,16 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ItemService } from '../services/item.service';
 import { TranslateService } from '../services/translate.service';
+import { MatchService } from '../services/match.service';
 import { TranslatePipe } from '../shared/translate.pipe';
 import { LocalizedDatePipe } from '../shared/localized-date.pipe';
+import { MatchCard } from '../shared/match-card/match-card';
 import { Item } from '../models/item.model';
 
 @Component({
   selector: 'app-item-detail',
-  imports: [RouterLink, TranslatePipe, LocalizedDatePipe],
+  imports: [RouterLink, TranslatePipe, LocalizedDatePipe, MatchCard],
   templateUrl: './item-detail.html',
   styleUrl: './item-detail.scss'
 })
@@ -17,8 +19,13 @@ export default class ItemDetail implements OnInit {
   private router = inject(Router);
   private itemService = inject(ItemService);
   private translateService = inject(TranslateService);
+  private matchService = inject(MatchService);
 
   item = signal<Item | undefined>(undefined);
+  matches = computed(() => {
+    const current = this.item();
+    return current ? this.matchService.findMatches(current) : [];
+  });
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');

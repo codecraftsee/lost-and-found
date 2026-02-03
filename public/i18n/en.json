@@ -32,6 +32,10 @@
   "detail.email": "Email",
   "detail.phone": "Phone",
   "detail.confirmDelete": "Are you sure you want to delete this item?",
+  "detail.potentialMatches": "Potential Matches",
+  "detail.strongMatch": "Strong match",
+  "detail.possibleMatch": "Possible match",
+  "detail.noMatches": "No potential matches found.",
 
   "report.title": "Report an Item",
   "report.typeLabel": "Type",
