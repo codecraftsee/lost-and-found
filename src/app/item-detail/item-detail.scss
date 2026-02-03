@@ -1,0 +1,121 @@
+.detail-page {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-2xl);
+  max-width: 800px;
+}
+
+.detail-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+
+  .btn {
+    text-decoration: none;
+  }
+}
+
+.btn-delete {
+  color: var(--color-lost);
+  border-color: var(--color-lost);
+
+  &:hover {
+    background-color: var(--color-lost-bg);
+  }
+}
+
+.detail-card {
+  padding: var(--spacing-xl);
+
+  &:hover {
+    transform: none;
+  }
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.detail-category {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.detail-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.3;
+}
+
+.detail-meta {
+  display: flex;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.meta-value {
+  font-size: 1rem;
+}
+
+.detail-description {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-secondary);
+  }
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+.detail-contact {
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+
+  a {
+    color: var(--color-accent);
+  }
+}

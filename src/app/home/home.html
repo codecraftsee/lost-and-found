@@ -1,0 +1,34 @@
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">Lost something? Found something?</h1>
+    <p class="hero-subtitle">Help reconnect people with their lost belongings. Report a lost or found item and browse listings from your community.</p>
+    <div class="hero-actions">
+      <a routerLink="/report" [queryParams]="{ type: 'lost' }" class="btn btn-lost">Report Lost Item</a>
+      <a routerLink="/report" [queryParams]="{ type: 'found' }" class="btn btn-found">Report Found Item</a>
+    </div>
+  </div>
+</section>
+
+<section class="recent-section container">
+  <div class="recent-header">
+    <h2 class="section-title">Recently Lost</h2>
+    <a routerLink="/items" [queryParams]="{ type: 'lost' }" class="view-all">View all</a>
+  </div>
+  <div class="items-grid">
+    @for (item of recentLost; track item.id) {
+      <app-item-card [item]="item" />
+    }
+  </div>
+</section>
+
+<section class="recent-section container">
+  <div class="recent-header">
+    <h2 class="section-title">Recently Found</h2>
+    <a routerLink="/items" [queryParams]="{ type: 'found' }" class="view-all">View all</a>
+  </div>
+  <div class="items-grid">
+    @for (item of recentFound; track item.id) {
+      <app-item-card [item]="item" />
+    }
+  </div>
+</section>

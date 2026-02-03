@@ -1,0 +1,57 @@
+<div class="container list-page">
+  <h1 class="section-title">Browse Items</h1>
+
+  <div class="filters">
+    <input
+      type="text"
+      class="form-control search-input"
+      placeholder="Search by title, description, or location..."
+      [value]="searchQuery()"
+      (input)="onSearch($event)"
+    />
+
+    <div class="filter-row">
+      <div class="type-toggle">
+        <button
+          class="toggle-btn"
+          [class.active]="typeFilter() === 'all'"
+          (click)="setTypeFilter('all')"
+        >All</button>
+        <button
+          class="toggle-btn toggle-lost"
+          [class.active]="typeFilter() === 'lost'"
+          (click)="setTypeFilter('lost')"
+        >Lost</button>
+        <button
+          class="toggle-btn toggle-found"
+          [class.active]="typeFilter() === 'found'"
+          (click)="setTypeFilter('found')"
+        >Found</button>
+      </div>
+
+      <select
+        class="form-control category-select"
+        [value]="categoryFilter()"
+        (change)="onCategoryChange($event)"
+      >
+        <option value="">All Categories</option>
+        @for (cat of categories; track cat) {
+          <option [value]="cat">{{ cat }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  @if (filteredItems().length > 0) {
+    <div class="items-grid">
+      @for (item of filteredItems(); track item.id) {
+        <app-item-card [item]="item" />
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <p class="empty-state-text">No items found matching your criteria.</p>
+      <a routerLink="/report" class="btn btn-primary">Report an Item</a>
+    </div>
+  }
+</div>

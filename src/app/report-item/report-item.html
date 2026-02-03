@@ -1,0 +1,106 @@
+<div class="container report-page">
+  <h1 class="section-title">Report an Item</h1>
+
+  <form class="report-form card" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="form-label">Type</label>
+      <div class="type-selector">
+        <label class="type-option" [class.selected]="f['type'].value === 'lost'" [class.type-lost]="f['type'].value === 'lost'">
+          <input type="radio" formControlName="type" value="lost" />
+          <span>Lost Item</span>
+        </label>
+        <label class="type-option" [class.selected]="f['type'].value === 'found'" [class.type-found]="f['type'].value === 'found'">
+          <input type="radio" formControlName="type" value="found" />
+          <span>Found Item</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="title">Title</label>
+      <input id="title" type="text" class="form-control" formControlName="title" placeholder="Brief title for the item" />
+      @if (f['title'].touched && f['title'].errors) {
+        <span class="form-error">
+          @if (f['title'].errors['required']) { Title is required. }
+          @else if (f['title'].errors['minlength']) { Title must be at least 3 characters. }
+        </span>
+      }
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="description">Description</label>
+      <textarea id="description" class="form-control" formControlName="description" rows="4" placeholder="Describe the item in detail..."></textarea>
+      @if (f['description'].touched && f['description'].errors) {
+        <span class="form-error">
+          @if (f['description'].errors['required']) { Description is required. }
+          @else if (f['description'].errors['minlength']) { Description must be at least 10 characters. }
+        </span>
+      }
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="category">Category</label>
+        <select id="category" class="form-control" formControlName="category">
+          <option value="" disabled>Select a category</option>
+          @for (cat of categories; track cat) {
+            <option [value]="cat">{{ cat }}</option>
+          }
+        </select>
+        @if (f['category'].touched && f['category'].errors) {
+          <span class="form-error">Category is required.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="date">Date</label>
+        <input id="date" type="date" class="form-control" formControlName="date" />
+        @if (f['date'].touched && f['date'].errors) {
+          <span class="form-error">Date is required.</span>
+        }
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="location">Location</label>
+      <input id="location" type="text" class="form-control" formControlName="location" placeholder="Where was the item lost/found?" />
+      @if (f['location'].touched && f['location'].errors) {
+        <span class="form-error">Location is required.</span>
+      }
+    </div>
+
+    <h2 class="form-section-title">Contact Information</h2>
+
+    <div class="form-group">
+      <label class="form-label" for="contactName">Your Name</label>
+      <input id="contactName" type="text" class="form-control" formControlName="contactName" placeholder="Full name" />
+      @if (f['contactName'].touched && f['contactName'].errors) {
+        <span class="form-error">Name is required.</span>
+      }
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="contactEmail">Email</label>
+        <input id="contactEmail" type="email" class="form-control" formControlName="contactEmail" placeholder="your@email.com" />
+        @if (f['contactEmail'].touched && f['contactEmail'].errors) {
+          <span class="form-error">
+            @if (f['contactEmail'].errors['required']) { Email is required. }
+            @else if (f['contactEmail'].errors['email']) { Please enter a valid email. }
+          </span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="contactPhone">Phone (optional)</label>
+        <input id="contactPhone" type="tel" class="form-control" formControlName="contactPhone" placeholder="555-0123" />
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn" [class.btn-lost]="f['type'].value === 'lost'" [class.btn-found]="f['type'].value === 'found'">
+        Submit Report
+      </button>
+    </div>
+  </form>
+</div>
