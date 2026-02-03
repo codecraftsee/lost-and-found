@@ -31,7 +31,8 @@ export class TranslateService {
 
   private async loadTranslations(lang: Lang): Promise<void> {
     try {
-      const res = await fetch(`/i18n/${lang}.json`);
+      const url = new URL(`i18n/${lang}.json`, document.baseURI).href;
+      const res = await fetch(url);
       const data = await res.json();
       this.translations.set(data);
     } catch {
