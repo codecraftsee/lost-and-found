@@ -178,6 +178,45 @@ export class ItemService {
         contactEmail: 'riley.m@email.com',
         contactPhone: '555-0108',
         createdAt: new Date(now - 4 * 86400000).toISOString()
+      },
+      {
+        id: crypto.randomUUID(),
+        type: 'found',
+        title: 'Brown Leather Wallet',
+        description: 'Found a brown leather wallet near the central park fountain. Contains ID and some credit cards.',
+        category: Category.Wallet,
+        location: 'Central Park, near the fountain',
+        date: new Date(now - 1 * 86400000).toISOString().split('T')[0],
+        contactName: 'Jamie Ross',
+        contactEmail: 'jamie.r@email.com',
+        contactPhone: '555-0109',
+        createdAt: new Date(now - 1 * 86400000).toISOString()
+      },
+      {
+        id: crypto.randomUUID(),
+        type: 'lost',
+        title: 'Car Keys with Red Keychain',
+        description: 'Lost a set of car keys with a red keychain near the city library entrance.',
+        category: Category.Keys,
+        location: 'City Library, main entrance',
+        date: new Date(now - 1 * 86400000).toISOString().split('T')[0],
+        contactName: 'Taylor Brooks',
+        contactEmail: 'taylor.b@email.com',
+        contactPhone: '555-0110',
+        createdAt: new Date(now - 1 * 86400000).toISOString()
+      },
+      {
+        id: crypto.randomUUID(),
+        type: 'found',
+        title: 'Samsung Galaxy Phone',
+        description: 'Found a Samsung Galaxy phone in a clear case at the downtown fitness center parking lot.',
+        category: Category.Electronics,
+        location: 'Downtown Fitness Center',
+        date: new Date(now - 2 * 86400000).toISOString().split('T')[0],
+        contactName: 'Morgan Chen',
+        contactEmail: 'morgan.c@email.com',
+        contactPhone: '555-0111',
+        createdAt: new Date(now - 2 * 86400000).toISOString()
       }
     ];
   }
