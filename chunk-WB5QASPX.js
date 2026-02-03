@@ -1,1 +1,0 @@
-import{F as i,ka as n,l as a,ta as o}from"./chunk-LFXUWIRS.js";var s=class r{translateService=a(o);transform(t,e="longDate"){let m=this.translateService.currentLang()==="sr"?"sr-Latn":"en-US";return n(t,e,m)}static \u0275fac=function(e){return new(e||r)};static \u0275pipe=i({name:"localizedDate",type:r,pure:!1})};export{s as a};
